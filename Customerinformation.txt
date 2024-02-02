@@ -1,0 +1,47 @@
+username : saeed
+
+password : 1234
+
+accountNumber : 4523-0000-0001-4345
+
+inventory : 0
+
+FirstName : saeed
+
+LastName : maleki
+
+DateOfBirth : 1379/12/05
+
+age : 23
+
+MobileNumber : 09632145698
+
+E-mail : www.saeed@gmail.com
+
+AccountType : C
+
+AssociatedAccountNumbers : does not have
+
+username : mina23
+
+password : 2323
+
+accountNumber : 4523-1111-0002-6093
+
+inventory : 0
+
+FirstName : mina
+
+LastName : razavi
+
+DateOfBirth : 1379/03/02
+
+age : 23
+
+MobileNumber : 09632145698
+
+E-mail : www.mina@gmail.com
+
+AccountType : S
+
+AssociatedAccountNumbers : does not have
