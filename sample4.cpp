@@ -62,6 +62,7 @@ public:
 
 Transaction::Transaction(int amount, const string &type) : timestamp(time(0)), amount(amount), type(type) {}
 
+// Inside the recordTransaction function in Transaction class
 void Transaction::recordTransaction() {
     if (type == "Deposit") {
         deposit_money(amount);
@@ -70,6 +71,23 @@ void Transaction::recordTransaction() {
     }
 
     cout << "Transaction recorded." << endl;
+
+    // Save the transaction to a file
+    ofstream outputFile("transactions.txt", ios::app); // Open file in append mode
+    if (outputFile.is_open()) {
+        saveToFile(outputFile);
+        outputFile.close();
+    } else {
+        cerr << "Unable to open the file for writing." << endl;
+    }
+}
+
+// Add the saveToFile function in Transaction class
+void Transaction::saveToFile(ofstream &outputFile) {
+    outputFile << "Timestamp: " << ctime(&timestamp);
+    outputFile << "Amount: " << amount << "\n";
+    outputFile << "Type: " << type << "\n";
+    outputFile << "-----------------\n";
 }
 
 void Transaction::display() const {
@@ -79,11 +97,6 @@ void Transaction::display() const {
     cout << "-----------------\n";
 }
 
-void Transaction::saveToFile(ofstream &outputFile) {
-    outputFile << timestamp << "\n";
-    outputFile << amount << "\n";
-    outputFile << type << "\n";
-}
 
 void Transaction::viewTransactionHistory(const vector<Transaction> &transactions) {
     if (transactions.empty()) {
@@ -100,6 +113,8 @@ void Transaction::viewTransactionHistory(const vector<Transaction> &transactions
 class User : public Account {
 public:
     void open_account();
+    void saveToFile(ofstream &outputFile);
+    void recordAccounts();
 };
 
 void User::open_account() {
@@ -118,6 +133,22 @@ void User::open_account() {
 
     cout << "Your account is created." << endl;
 }
+void User::saveToFile(ofstream &outputFile) {
+    outputFile << "Full name: " <<name ;
+    outputFile << "Address: " <<add  << "\n";
+    outputFile << "Type of account: " << y << "\n";
+    outputFile << "Amount you deposit: "<<getBalance()<<"\n"; 
+    outputFile << "-----------------\n";
+}
+void User::recordAccounts(){
+	ofstream outputFile("userinfo.txt", ios::app); // Open file in append mode
+    if (outputFile.is_open()) {
+        saveToFile(outputFile);
+        outputFile.close();
+    } else {
+        cerr << "Unable to open the file for writing." << endl;
+    }
+}
 
 int main() {
     vector<Transaction> transactions;
@@ -131,6 +162,7 @@ int main() {
         cout << "04) View transaction history\n";
         cout << "05) Open account\n";
         cout << "06) Exit\n";
+        
         cout << "Please select an option: ";
         cin >> ch;
 
@@ -163,6 +195,7 @@ int main() {
                 break;
             case 5:
                 user.open_account();
+                user.recordAccounts();
                 break;
             case 6:
                 cout << "Exiting...\n";
