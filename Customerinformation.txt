@@ -45,3 +45,27 @@ E-mail : www.mina@gmail.com
 AccountType : S
 
 AssociatedAccountNumbers : does not have
+
+username : mahsaf1
+
+password : 1452m
+
+account number : 4523-1111-0003-8659
+
+inventory : 0
+
+FirstName : mahsa
+
+LastName : faraji
+
+DateOfBirth : 1375/08/04
+
+age : 28
+
+MobileNumber : 09632145698
+
+E-mail : www.mahsa@gmail.com
+
+AccountType : S
+
+AssociatedAccountNumbers : does not have
