@@ -193,7 +193,7 @@ public:
                                << "4523-1111-" << setw(4) << setfill('0') << usernames.size() + 1 << "-" << a << endl;
                 write_accountinfo << "\n"
                                   << "account number : "
-                                  << "4523-0000-" << setw(4) << setfill('0') << usernames.size() + 1 << "-" << a << endl;
+                                  << "4523-1111-" << setw(4) << setfill('0') << usernames.size() + 1 << "-" << a << endl;
             }
             else if (type == "C")
             {
@@ -203,7 +203,7 @@ public:
                 int a = rand() % 9000 + 1000;
 
                 write_CustInfo << "\n"
-                               << "accountNumber : "
+                               << "account number : "
                                << "4523-0000-" << setw(4) << setfill('0') << usernames.size() + 1 << "-" << a << endl;
                 write_accountinfo << "\n"
                                   << "account number : "
