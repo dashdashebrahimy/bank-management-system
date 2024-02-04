@@ -620,17 +620,17 @@ public:
 class Transaction : private account{
 private:
     time_t timestamp;
-    int amount;
+    string amount;
     std::string type;
 
 public:
-    Transaction(int amount, const string &type);
+    Transaction(const string& amount, const string &type);
     void recordTransaction();
     void display() const;
     void saveToFile(ofstream &outputFile);
     static void viewTransactionHistory(const vector<Transaction> &transactions);
 };
-Transaction::Transaction(int amount, const string &type) : timestamp(time(0)), amount(amount), type(type) {}
+Transaction::Transaction(const string& amount, const string &type) : timestamp(time(0)), amount(amount), type(type) {}
 void Transaction::recordTransaction() {
     if (type == "deposit") {
         deposit_money(getAccNum(), getBalance());  
@@ -701,10 +701,16 @@ void login()
     else if (answer == 2)
     {
         A2.deposit_money(str, balance);
+        Transaction depositTransaction(str, balance);
+        depositTransaction.recordTransaction();
+        transactions.push_back(depositTransaction);
     }
     else if (answer == 3)
     {
         A2.withdraw_money(str, balance);
+        Transaction withdrawalTransaction(str, balance);
+        withdrawalTransaction.recordTransaction();
+        transactions.push_back(withdrawalTransaction);
     }
     else if (answer == 4)
     {
