@@ -105,7 +105,7 @@ void submenu(string User)
 		    else if(b==2)
 		    {
 			
-			    A2.deposit_money(str, balance,User);	
+			    A2.deposit_money(str, balance);	
 		    }   
 			else if (b == 3)
             {
