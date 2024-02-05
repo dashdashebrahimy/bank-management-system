@@ -202,7 +202,7 @@ public:
                                << "accountNumber : "
                                << "4523-1111-" << setw(4) << setfill('0') << usernames.size() + 1 << "-" << a << endl;
                 write_accountinfo << "\n"
-                                  << "account number : "
+                                  << "accountNumber : "
                                   << "4523-1111-" << setw(4) << setfill('0') << usernames.size() + 1 << "-" << a << endl;
             }
             else if (type == "C"||type=="c")
@@ -216,7 +216,7 @@ public:
                                << "accountNumber : "
                                << "4523-0000-" << setw(4) << setfill('0') << usernames.size() + 1 << "-" << a << endl;
                 write_accountinfo << "\n"
-                                  << "account number : "
+                                  << "accountNumber : "
                                   << "4523-0000-" << setw(4) << setfill('0') << usernames.size() + 1 << "-" << a << endl;
             }
             write_CustInfo << "\n"
@@ -245,10 +245,10 @@ public:
                            << endl;
 
             write_accountinfo << "\n"
-                              << "AccountType: " << type << endl;
+                              << "AccountType : " << type << endl;
 
             write_accountinfo << "\n"
-                              << "Balance: "
+                              << "Balance : "
                               << "0" << endl
                               << endl;
         }
