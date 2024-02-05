@@ -8,6 +8,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <iomanip>
+#define ll long long
 using namespace std;
 class account
 {
@@ -77,45 +78,53 @@ public:
     void withdraw_money(std::string accnum, std::string balance)
     {
         std::cout << "\n\n\t\t\t\tEnter the amount you want to withdraw: ";
-        int New_withdraw;
+        ll New_withdraw;
         std::cin >> New_withdraw;
-        int balanceint = std::stoi(balance) - New_withdraw;
-        std::cout << "Mission accomplished" << std::endl;
-        balance = std::to_string(balanceint);
-        int num = std::stoi(accnum.substr(10, 4)) - 1;
-        std::string originalFilePath = "accountNumbers.txt";
-        int lineNumber = num * 7 + 6;
-        std::string newLineContent = "Balance : " + balance;
-        std::ifstream originalFile("accountNumbers.txt");
-        std::ofstream tempFile("temp.txt");
-
-        if (originalFile.is_open() && tempFile.is_open())
+        if (stoi(balance) >= New_withdraw)
         {
-            std::string line;
-            int currentLineNumber = 0;
+            ll balanceint = std::stoi(balance) - New_withdraw;
+            std::cout << "Mission accomplished" << std::endl;
+            balance = std::to_string(balanceint);
+            ll num = std::stoi(accnum.substr(10, 4)) - 1;
+            std::string originalFilePath = "accountNumbers.txt";
+            ll lineNumber = num * 7 + 6;
+            std::string newLineContent = "Balance : " + balance;
+            std::ifstream originalFile("accountNumbers.txt");
+            std::ofstream tempFile("temp.txt");
 
-            while (currentLineNumber < lineNumber - 1 && std::getline(originalFile, line))
+            if (originalFile.is_open() && tempFile.is_open())
             {
-                tempFile << line << std::endl;
-                currentLineNumber++;
+                std::string line;
+                ll currentLineNumber = 0;
+
+                while (currentLineNumber < lineNumber - 1 && std::getline(originalFile, line))
+                {
+                    tempFile << line << std::endl;
+                    currentLineNumber++;
+                }
+                tempFile << newLineContent << std::endl;
+
+                std::getline(originalFile, line);
+
+                while (std::getline(originalFile, line))
+                {
+                    tempFile << line << std::endl;
+                }
+                std::remove("accountNumbers.txt");
+                std::rename("temp.txt", "accountNumbers.txt");
             }
-            tempFile << newLineContent << std::endl;
-
-            std::getline(originalFile, line);
-
-            while (std::getline(originalFile, line))
+            else
             {
-                tempFile << line << std::endl;
+                std::cout << "Error opening files." << std::endl;
             }
-            std::remove("accountNumbers.txt");
-            std::rename("temp.txt", "accountNumbers.txt");
+            originalFile.close();
+            tempFile.close();
         }
         else
         {
-            std::cout << "Error opening files." << std::endl;
+            cout << "The account balance is insufficient" << endl;
         }
-        originalFile.close();
-            tempFile.close();
+
         string x;
         cout << "\n\t\t\t"
              << "Press a key to go back : ";
@@ -126,14 +135,14 @@ public:
     void deposit_money(std::string accnum, std::string balance)
     {
         std::cout << "\n\n\t\t\t\tEnter the amount you want to deposit: ";
-        int New_deposit;
+        ll New_deposit;
         std::cin >> New_deposit;
-        int balanceint = std::stoi(balance) + New_deposit;
+        ll balanceint = std::stoi(balance) + New_deposit;
         std::cout << "Mission accomplished" << std::endl;
         balance = std::to_string(balanceint);
-        int num = std::stoi(accnum.substr(10, 4)) - 1;
+        ll num = std::stoi(accnum.substr(10, 4)) - 1;
         std::string originalFilePath = "accountNumbers.txt";
-        int lineNumber = num * 7 + 6;
+        ll lineNumber = num * 7 + 6;
         std::string newLineContent = "Balance : " + balance;
         std::ifstream originalFile("accountNumbers.txt");
         std::ofstream tempFile("temp.txt");
@@ -141,7 +150,7 @@ public:
         if (originalFile.is_open() && tempFile.is_open())
         {
             std::string line;
-            int currentLineNumber = 0;
+            ll currentLineNumber = 0;
 
             while (currentLineNumber < lineNumber - 1 && std::getline(originalFile, line))
             {
