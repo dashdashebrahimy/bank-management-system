@@ -9,7 +9,7 @@
 #include "user.h"
 #include "account.h"
 using namespace std;
-vector<Transaction> transactions;
+//vector<Transaction> transactions;
 void login();
 
 void MAIN_MENU();
