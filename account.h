@@ -1,26 +1,12 @@
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <fstream>
-#include <vector>
-#include <ctime>
-#include <cstdlib>
-#include <iomanip>
-
-using namespace std;
-
 class account
 {
 private:
-    string accnum, word, invent, New_deposit, New_inventory, result = "", balance;
-
-    int carry = 0, i, j;
+    std::string accnum, word, balance;
 
 public:
-    string find_accnum(string username)
+    std::string find_accnum(std::string username)
     {
-        ifstream myfile;
-
+        std::ifstream myfile;
         myfile.open("Customerinformation.txt");
 
         if (myfile.is_open())
@@ -29,37 +15,26 @@ public:
             {
                 if (word == username)
                 {
-                    myfile >> word;
-
-                    myfile >> word;
-
-                    myfile >> word;
-
-                    myfile >> word;
-
-                    myfile >> word;
-
-                    myfile >> word;
-
-                    myfile >> word;
+                    for (int i = 0; i < 7; ++i)
+                        myfile >> word;
 
                     accnum = word;
-
                     break;
                 }
             }
         }
         else
-
-            cout << "the file could not be opened!";
+        {
+            std::cout << "The file could not be opened!";
+        }
 
         myfile.close();
         return accnum;
     }
-    string getbalance(string ccn)
-    {
-        ifstream myfile;
 
+    std::string getbalance(std::string ccn)
+    {
+        std::ifstream myfile;
         myfile.open("accountNumbers.txt");
 
         if (myfile.is_open())
@@ -69,178 +44,116 @@ public:
                 if (word == ccn)
                 {
                     myfile >> word;
-
                     myfile >> word;
-
                     myfile >> word;
-
                     myfile >> word;
-
+                    myfile >> word;
+                    myfile >> word;
                     balance = word;
-
                     break;
                 }
             }
         }
         else
-
-            cout << "the file could not be opened!";
+        {
+            std::cout << "The file could not be opened!";
+        }
 
         myfile.close();
         return balance;
     }
-    string Invent(string str)
+
+    void withdraw_money(std::string accnum, std::string balance)
     {
-        string invent;
+        std::cout << "\n\n\t\t\t\tEnter the amount you want to withdraw: ";
+        int New_withdraw;
+        std::cin >> New_withdraw;
+        int balanceint = std::stoi(balance) - New_withdraw;
+        std::cout << "Mission accomplished" << std::endl;
+        balance = std::to_string(balanceint);
+        int num = std::stoi(accnum.substr(10, 14)) - 1;
+        std::string originalFilePath = "accountNumbers.txt";
+        int lineNumber = num * 7 + 6;
+        std::string newLineContent = "Balance : " + balance;
+        std::ifstream originalFile("accountNumbers.txt");
+        std::ofstream tempFile("temp.txt");
 
-        ifstream Myfile;
-
-        Myfile.open("Customerinformation.txt");
-
-        if (Myfile.is_open())
+        if (originalFile.is_open() && tempFile.is_open())
         {
-            string word1;
+            std::string line;
+            int currentLineNumber = 0;
 
-            while (Myfile >> word1)
+            while (currentLineNumber < lineNumber - 1 && std::getline(originalFile, line))
             {
-                if (word1 == str)
-                {
-                    Myfile >> word1;
-
-                    Myfile >> word1;
-
-                    Myfile >> word1;
-
-                    invent = word1;
-
-                    break;
-                }
+                tempFile << line << std::endl;
+                currentLineNumber++;
             }
+            tempFile << newLineContent << std::endl;
+
+            std::getline(originalFile, line);
+
+            while (std::getline(originalFile, line))
+            {
+                tempFile << line << std::endl;
+            }
+            originalFile.close();
+            tempFile.close();
+            std::remove("accountNumbers.txt");
+            std::rename("temp.txt", "accountNumbers.txt");
         }
         else
+        {
+            std::cout << "Error opening files." << std::endl;
+        }
+    }
 
-            cout << "the file could not be opened!";
+    void deposit_money(std::string accnum, std::string balance)
+    {
+        std::cout << "\n\n\t\t\t\tEnter the amount you want to deposit: ";
+        int New_deposit;
+        std::cin >> New_deposit;
+        int balanceint = std::stoi(balance) + New_deposit;
+        std::cout << "Mission accomplished" << std::endl;
+        balance = std::to_string(balanceint);
+        int num = std::stoi(accnum.substr(10, 14)) - 1;
+        std::string originalFilePath = "accountNumbers.txt";
+        int lineNumber = num * 7 + 6;
+        std::string newLineContent = "Balance : " + balance;
+        std::ifstream originalFile("accountNumbers.txt");
+        std::ofstream tempFile("temp.txt");
 
-        Myfile.close();
+        if (originalFile.is_open() && tempFile.is_open())
+        {
+            std::string line;
+            int currentLineNumber = 0;
 
-        if (invent == "")
+            while (currentLineNumber < lineNumber - 1 && std::getline(originalFile, line))
+            {
+                tempFile << line << std::endl;
+                currentLineNumber++;
+            }
+            tempFile << newLineContent << std::endl;
 
-            return "Account number not found!";
+            std::getline(originalFile, line);
 
+            while (std::getline(originalFile, line))
+            {
+                tempFile << line << std::endl;
+            }
+            originalFile.close();
+            tempFile.close();
+            std::remove("accountNumbers.txt");
+            std::rename("temp.txt", "accountNumbers.txt");
+        }
         else
-
-            return invent;
-    }
-    void input()
-    {
-        string line;
-        ofstream temp;
-        ifstream accountnumbers;
-        temp.open("temp.txt", ios::app);
-        accountnumbers.open("accountNumbers.txt");
-        if (accountnumbers.is_open())
         {
-            while (getline(accountnumbers, line))
-            {
-                cout << line << endl;
-                temp << line << endl;
-            }
-
-            temp.close();
-            accountnumbers.close();
+            std::cout << "Error opening files." << std::endl;
         }
     }
-
-    void deposit_money(string accnum, string balance,string username)
-    {
-        // string invent = Invent(accnum);
-
-        cout << "\n\n\t\t\t\t"
-             << "Enter the amount you want to deposit: ";
-        int New_deposit,ans;
-        cin >> New_deposit;
-        int balanceint = stoi(balance) + New_deposit;
-        balance = to_string(balanceint);
-        int num = stoi(accnum.substr(10, 14)) - 1;
-
-        // New_inventory = Increase_in_inventory(invent, New_deposit);
-
-        // inventory = New_inventory;
-        
-		
+    std::string getAccNum() const {
+        return accnum;
     }
-//}
-
-void withdraw_money(string accnum, string balance)
-{
-    cout << "\n\n\t\t\t\t"
-         << "Enter the amount you want to withdraw: ";
-    int New_withdraw;
-    cin >> New_withdraw;
-    int balanceint = stoi(balance) - New_withdraw;
-    balance = to_string(balanceint);
-    int num = stoi(accnum.substr(10, 14)) - 1;
-    // cout << num;
-    fstream myfile("accountNumbers.txt", ios::in | ios::out);
-
-    if (myfile.is_open())
-    {
-        string line;
-        int currentLineNumber = 0;
-
-        while (getline(myfile, line))
-        {
-            currentLineNumber++;
-            if (currentLineNumber == (num * 7) + 6)
-            {
-                istringstream iss(line);
-                string word;
-                int currentWordPosition = 0;
-                while (iss >> word)
-                {
-
-                    currentWordPosition++;
-                    if (currentWordPosition == 2)
-                    {
-                        // cout << word;
-                        word = balance;
-                        cout << "new Value: " << word;
-                        break;
-                    }
-                }
-                break;
-            }
-        }
-        myfile.close();
+    std::string getBalance() const {
+        return balance;
     }
-
-    else
-
-        cout << "the file could not be opened!";
-}
-string Increase_in_inventory(string a, string b)
-{
-    i = a.length() - 1;
-
-    j = b.length() - 1;
-
-    while (i >= 0 || j >= 0 || carry > 0)
-    {
-        int n1 = (i >= 0) ? a[i] - '0' : 0;
-
-        int n2 = (j >= 0) ? b[j] - '0' : 0;
-
-        int s = n1 + n2 + carry;
-
-        result = char(s % 10 + '0') + result;
-
-        carry = s / 10;
-
-        i--;
-
-        j--;
-    }
-
-    return result;
-}
 };
