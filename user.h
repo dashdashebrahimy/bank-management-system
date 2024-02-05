@@ -130,7 +130,7 @@ public:
         cin >> type;
 
         bool flag1 = true;
-
+        bool contin=true;
         while (flag1 == true)
         {
             cout << "\n\t\t\t"
@@ -140,13 +140,23 @@ public:
             if (username_check(username) == 'N')
 
                 flag1 = false;
-
+            
             else
-
+            {
                 cout << "\n\t\t\t"
-                     << "***This National code has already been selected. Please choose another National code.***";
+                     << "***This national code has already been registered. Please select the login option.***"<<endl;
+                     flag1 = false;
+                     char x;
+                     cout<<"\n\t\t\t"<<"Press a key to go back : ";
+		             cin>>x;
+		             contin=false;
+		             system("cls");
+                     
+			}
+                
         }
-
+        if(contin==true)
+        {
         bool flag2 = true;
 
         while (flag2 == true)
@@ -255,9 +265,10 @@ public:
 		    cout<<"\n\t\t\t"<<"Press a key to go back : ";
 		    cin>>x;
 		    system("cls");
+		}
         
     }
-    void identity_confirmation(string User)
+    void identity_confirmation(string &User)
     {
         USERS();
 
@@ -323,6 +334,7 @@ public:
 
                 User = username;
                 flag2 = false;
+                system("cls");
             }
             else
 
@@ -378,6 +390,10 @@ public:
         myfile.close();
         
         char x;
+        
+         cout<<"\n\t\t\t"<<"Press a key to go back : ";
+		 cin>>x;
+		  system("cls");
 
         
 	        } 	

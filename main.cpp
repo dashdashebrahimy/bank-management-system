@@ -49,7 +49,7 @@ void MAIN_MENU()
 
     cin >> ans;
 
-//   system("cls");
+   system("cls");
 
     if (ans == 1)
     {
@@ -62,7 +62,7 @@ void MAIN_MENU()
 
     if (ans == 2 || ans == 3)
 
-        A1.identity_confirmation(user);
+        login();
 }
 
 void submenu(string User)
@@ -98,6 +98,8 @@ void submenu(string User)
 		    if(b==1)
 		    {
 		    	A1.Personal_information(User);
+		    	submenu(User);
+		    	
 		    	
 			}
 		    else if(b==2)
@@ -123,10 +125,10 @@ void submenu(string User)
     account A2;
 
 
-    A1.identity_confirmation(A1.username);
+    A1.identity_confirmation(User);
 
     
-    submenu(A1.username);
+    submenu(User);
     
     
 }
