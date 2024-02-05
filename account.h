@@ -1,3 +1,14 @@
+#ifndef USER 
+#define USER
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <fstream>
+#include <vector>
+#include <ctime>
+#include <cstdlib>
+#include <iomanip>
+using namespace std;
 class account
 {
 private:
@@ -157,3 +168,4 @@ public:
         return balance;
     }
 };
+#endif
