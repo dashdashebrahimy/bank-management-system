@@ -26,7 +26,7 @@ public:
             {
                 if (word == username)
                 {
-                    for (int i = 0; i < 7; ++i)
+                    for (int i = 0; i < 6; ++i)
                         myfile >> word;
 
                     accnum = word;
@@ -82,7 +82,7 @@ public:
         int balanceint = std::stoi(balance) - New_withdraw;
         std::cout << "Mission accomplished" << std::endl;
         balance = std::to_string(balanceint);
-        int num = std::stoi(accnum.substr(10, 14)) - 1;
+        int num = std::stoi(accnum.substr(10, 4)) - 1;
         std::string originalFilePath = "accountNumbers.txt";
         int lineNumber = num * 7 + 6;
         std::string newLineContent = "Balance : " + balance;
@@ -107,8 +107,6 @@ public:
             {
                 tempFile << line << std::endl;
             }
-            originalFile.close();
-            tempFile.close();
             std::remove("accountNumbers.txt");
             std::rename("temp.txt", "accountNumbers.txt");
         }
@@ -116,6 +114,13 @@ public:
         {
             std::cout << "Error opening files." << std::endl;
         }
+        originalFile.close();
+            tempFile.close();
+        string x;
+        cout << "\n\t\t\t"
+             << "Press a key to go back : ";
+        cin >> x;
+        system("cls");
     }
 
     void deposit_money(std::string accnum, std::string balance)
@@ -126,7 +131,7 @@ public:
         int balanceint = std::stoi(balance) + New_deposit;
         std::cout << "Mission accomplished" << std::endl;
         balance = std::to_string(balanceint);
-        int num = std::stoi(accnum.substr(10, 14)) - 1;
+        int num = std::stoi(accnum.substr(10, 4)) - 1;
         std::string originalFilePath = "accountNumbers.txt";
         int lineNumber = num * 7 + 6;
         std::string newLineContent = "Balance : " + balance;
@@ -160,11 +165,18 @@ public:
         {
             std::cout << "Error opening files." << std::endl;
         }
+        string x;
+        cout << "\n\t\t\t"
+             << "Press a key to go back : ";
+        cin >> x;
+        system("cls");
     }
-    std::string getAccNum() const {
+    std::string getAccNum() const
+    {
         return accnum;
     }
-    std::string getBalance() const {
+    std::string getBalance() const
+    {
         return balance;
     }
 };
