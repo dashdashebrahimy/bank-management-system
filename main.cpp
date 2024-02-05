@@ -25,9 +25,12 @@ int main()
 void MAIN_MENU()
 {
     int ans;
+    vector<Transaction> transactions;
 
     user A1;
     string user;
+    
+
 
     //    system("cls");
 
@@ -65,6 +68,7 @@ void MAIN_MENU()
 void submenu(string User)
 {
     int b;
+    vector<Transaction> transactions;
 
     string str, invent, inventory, creditnum, balance;
 
@@ -106,12 +110,22 @@ void submenu(string User)
     }
     else if (b == 2)
     {
-
+    
         A2.deposit_money(str, balance);
+        Transaction depositTransaction(str, balance);
+        depositTransaction.recordTransaction();
+        transactions.push_back(depositTransaction);
     }
     else if (b == 3)
     {
         A2.withdraw_money(str, balance);
+        Transaction withdrawalTransaction(str, balance);
+        withdrawalTransaction.recordTransaction();
+        transactions.push_back(withdrawalTransaction);
+    }
+     else if (b == 4)
+    {
+    	Transaction::viewTransactionHistory(transactions);
     }
     else if (b == 5)
     {
@@ -122,6 +136,7 @@ void submenu(string User)
 void login()
 {
     string str, invent, User, inventory, creditnum, balance;
+    vector<Transaction> transactions;
 
     user A1;
 
