@@ -1,5 +1,5 @@
-#ifndef USER 
-#define USER
+#ifndef ACCOUNT
+#define ACCOUNT
 #include <iostream>
 #include <string>
 #include <sstream>
