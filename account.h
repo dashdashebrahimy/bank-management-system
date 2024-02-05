@@ -224,15 +224,15 @@ void Transaction::recordTransaction() {
 // Add the saveToFile function in Transaction class
 void Transaction::saveToFile(ofstream &outputFile) {
     outputFile << "Timestamp: " << ctime(&timestamp);
-    outputFile << "Amount: " << amount << "\n";
-    outputFile << "Type: " << type << "\n";
+    outputFile << "Account_number: " << amount << "\n";
+    outputFile << "Amount: " << type << "\n";
     outputFile << "-----------------\n";
 }
 
 void Transaction::display() const {
     cout << "Timestamp: " << ctime(&timestamp);
-    cout << "Amount: " << amount << "\n";
-    cout << "Type: " << type << "\n";
+    cout << "Account_number: " << amount << "\n";
+    cout << "Amount: " << type << "\n";
     cout << "-----------------\n";
 }
 
