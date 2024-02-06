@@ -1,71 +1,88 @@
-username : saeed
+NationalCode : 063
 
-password : 1234
+password : 22
 
-accountNumber : 4523-0000-0001-4345
+accountNumber : 4523-1111-0001-2890
 
-inventory : 0
+Balance : 12000
 
-FirstName : saeed
+FirstName : mari
 
-LastName : maleki
+LastName : ras
 
-DateOfBirth : 1379/12/05
+DateOfBirth : 1380
 
-age : 23
+age : 22
 
-MobileNumber : 09632145698
+MobileNumber : 0930
 
-E-mail : www.saeed@gmail.com
-
-AccountType : C
-
-AssociatedAccountNumbers : does not have
-
-username : mina23
-
-password : 2323
-
-accountNumber : 4523-1111-0002-6093
-
-inventory : 0
-
-FirstName : mina
-
-LastName : razavi
-
-DateOfBirth : 1379/03/02
-
-age : 23
-
-MobileNumber : 09632145698
-
-E-mail : www.mina@gmail.com
+E-mail : www
 
 AccountType : S
 
-AssociatedAccountNumbers : does not have
+NationalCode : 021
 
-username : mahsaf1
+password : 22
 
-password : 1452m
+accountNumber : 4523-1111-0002-4023
 
-account number : 4523-1111-0003-8659
+Balance : 15000
 
-inventory : 0
+FirstName : zari
 
-FirstName : mahsa
+LastName : hos
 
-LastName : faraji
+DateOfBirth : 1379
 
-DateOfBirth : 1375/08/04
+age : 23
 
-age : 28
+MobileNumber : 0915
 
-MobileNumber : 09632145698
+E-mail : www
 
-E-mail : www.mahsa@gmail.com
+AccountType : s
 
-AccountType : S
+NationalCode : 012
 
-AssociatedAccountNumbers : does not have
+password : 22
+
+accountNumber : 4523-1111-0003-4412
+
+Balance : 25000
+
+FirstName : mmd
+
+LastName : asd
+
+DateOfBirth : 1345
+
+age : 50
+
+MobileNumber : 0936
+
+E-mail : www
+
+AccountType : s
+
+NationalCode : 063
+
+password : 22
+
+accountNumber : 4523-0000-0004-5516
+
+Balance : 17000
+
+FirstName : mari
+
+LastName : ras
+
+DateOfBirth : 1380
+
+age : 22
+
+MobileNumber : 0930
+
+E-mail : www
+
+AccountType : c
+

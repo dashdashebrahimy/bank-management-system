@@ -1,0 +1,79 @@
+NationalCode : 123456789
+
+password : 1414
+
+FirstName : reza
+
+LastName : moosavi
+
+position : Bank CEO
+
+DateOfBirth : 1340/12/15
+
+age : 63
+
+MobileNumber : 09300000000
+
+E-mail : www.reza@gmail.com
+
+salary : 50000000
+---------------------------------------
+NationalCode : 12121212
+
+password : 5632
+
+FirstName : ahmad
+
+LastName : karimi
+
+position : Accountants
+
+DateOfBirth : 1360/12/12
+
+age : 43
+
+MobileNumber : 09301111111
+
+E-mail : www.ahmad@gmail.com
+
+salary : 30000000
+---------------------------------------
+NationalCode : 13131313
+
+password : 2222
+
+FirstName : negar
+
+LastName : ahmadi
+
+position : banker
+
+DateOfBirth : 1379/04/19
+
+age : 23
+
+MobileNumber : 09302222222
+
+E-mail : www.negar@gmail.com
+
+salary : 10000000
+---------------------------------------
+NationalCode : 14141414
+
+password : 3333
+
+FirstName : saeed
+
+LastName : hashemi
+
+position : IT engineer
+
+DateOfBirth : 1375/04/20
+
+age : 27
+
+MobileNumber : 09303333333
+
+E-mail : www.saeed@gmail.com
+
+salary : 20000000

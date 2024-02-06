@@ -1,0 +1,8 @@
+
+account number : 4523-0000-0004-5516
+
+type : deposit
+
+amount : 2000
+
+time : 2024-02-06 10:03:40

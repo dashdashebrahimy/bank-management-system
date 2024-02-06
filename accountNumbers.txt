@@ -1,0 +1,24 @@
+accountNumber : 4523-1111-0001-2890
+
+Balance : 12000
+
+AccountType : S
+
+accountNumber : 4523-1111-0002-4023
+
+Balance : 15000
+
+AccountType : s
+
+accountNumber : 4523-1111-0003-4412
+
+Balance : 25000
+
+AccountType : s
+
+accountNumber : 4523-0000-0004-5516
+
+Balance : 17000
+
+AccountType : c
+
